@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  mysql:
+    image: mariadb:10.3.5
+    ports:
+      - "33060:3306"
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./mysql:/var/lib/mysql

@@ -1,0 +1,10 @@
+newspaper3k
+pymongo
+scrapy
+scrapyd
+scrapyd_client
+psycopg2-binary
+google-cloud-language
+scrapyrt
+scrapy-splash
+oss2

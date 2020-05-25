@@ -1,0 +1,22 @@
+version: '3'
+
+services: 
+  scrapyd:
+    image: lovejin52022/spiderkeeper:1.1.5
+    ports:
+      - "6800:6800"
+    volumes:
+      - ./data:/var/lib/scrapyd
+    command: scrapyd
+  spiderkeeper:
+    image: lovejin52022/spiderkeeper:1.1.5
+    ports:
+      - "5000:5000"
+    depends_on:
+      - scrapyd
+    volumes:
+      - ./data:/var/lib/scrapyd
+    command: spiderkeeper --database-url=sqlite:////var/lib/scrapyd/SpiderKeeper.db --server=http://scrapyd:6800
+
+
+      

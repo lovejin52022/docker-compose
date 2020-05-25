@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  jre-alpha:
+    image: openjdk:11-jre-slim
+    container_name: jre-alpha
+    working_dir: /data
+    restart: always
+    ports:
+      - "127.0.0.1:18080:8080"
+    volumes:
+      - ./data:/data
+    entrypoint:
+      - java
+      - -Duser.timezone=Aisa/Shanghai
+      - -Dspring.profiles.active=development
+      - -jar
+      - /data/gyy-video-server.jar
